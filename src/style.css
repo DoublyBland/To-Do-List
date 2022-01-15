@@ -1,0 +1,36 @@
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+}
+
+
+body {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  background-color: gray;
+}
+
+
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+}
+
