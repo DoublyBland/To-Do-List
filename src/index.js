@@ -1,4 +1,7 @@
-import {headerFooter} from "./headerFooter.js";
+//import {headerFooter} from "./headerFooter.js";
 import './style.css';
+import { activateListeners} from './listeners';
+//import {populateProjects} from './domUpdates';
 
-headerFooter();
+activateListeners();
+//populateProjects();
