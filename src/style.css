@@ -1,5 +1,4 @@
 body {
-  height: 100%;
   font-family: "Lato", sans-serif;
 }
 
@@ -14,12 +13,14 @@ body {
   background-color: lightblue;
   height: 50px;
   font-size: 36px;
+  padding-left: 20px;
 }
 
 #footer {
   background-color: lightblue;
   height: 36px;
   font-size: 24px;
+  padding-left: 20px;
 }
 
 #content {
@@ -68,7 +69,7 @@ body {
 
 /* Main content */
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-left: 25px; /* Same as the width of the sidenav */
   font-size: 20px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -164,9 +165,29 @@ body {
 
 #to-do-holder {
   display: flex;
+  flex-wrap: wrap;
 }
 
 #to-do-holder div {
   border: solid black 2px;
+  border-radius: 25px;
   margin: 5px;
+  padding: 0px 15px;
+}
+
+.main h1 {
+  text-align: center;
+}
+
+#to-do-holder button {
+  border-radius: 25px;
+  height: 80px;
+  min-width: 80px;
+  font-size: 60px;
+  align-self: center;
+  margin: 15px;
+}
+
+#to-do-holder button:hover {
+  background-color: rgb(230, 255, 194);
 }

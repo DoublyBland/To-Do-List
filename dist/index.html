@@ -19,8 +19,8 @@
                   <a class="open-button" id="new-project">+ New Project</a>
                 </div>
               </div>
-            <div class="main">
-                <div id="to-do-holder">To'dos</div>
+            <div class="main" id="main-content"><h1 id="to-do-heading">To'dos</h1>
+                <div id="to-do-holder"></div>
                 <div class="form-popup" id="myForm">
                     <div class="form-container">
                       <h1>New Project</h1>
@@ -30,6 +30,26 @@
 
                       <button type="button" class="btn" id="add-project">Add Project</button>
                       <button type="button" class="btn cancel" id="cancel-project">Cancel</button>
+                    </div>
+                  </div>
+                  <div class="form-popup" id="to-do-form">
+                    <div class="form-container">
+                      <h1>New To-Do</h1>
+                  
+                      <label for="name"><b>To-Do Name</b></label>
+                      <input type="text" placeholder="Enter Name" class="input" id="to-do-name">
+
+                      <label for="name"><b>Description</b></label>
+                      <input type="text" placeholder="Enter Description" class="input" id="to-do-description">
+
+                      <label for="name"><b>Due Date</b></label>
+                      <input type="date" placeholder="Enter Date" class="input" id="to-do-date">
+
+                      <label for="name"><b>Priority</b></label>
+                      <input type="text" placeholder="Priority Level" class="input" id="to-do-priority">
+
+                      <button type="button" class="btn" id="add-to-do">Add To-Do</button>
+                      <button type="button" class="btn cancel" id="cancel-to-do">Cancel</button>
                     </div>
                   </div>
             </div>
