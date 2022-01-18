@@ -1,5 +1,6 @@
 import {activateListeners, openForm} from './toDoDOM'
-import {displayToDo} from './projectHandler'
+import {displayToDo, projects} from './projectHandler'
+import { activateEditListeners, editForm } from './editItem';
 
 function newToDo(project){
     let nameField  = document.getElementById('to-do-name');
@@ -17,7 +18,8 @@ function newToDo(project){
     }
 
     //return toDo
-
+    // let copy = projects;
+    // window.localStorage.setItem("Projects", JSON.stringify(copy));
     project.todos.push(toDo);
     displayToDo(project);
     //addNode(toDo);
@@ -41,6 +43,13 @@ function addToDo(project) {
     
 }
 
+function editItem(item, itemDOM, project){
+    //console.log(item);
+    editForm(item);
+    activateEditListeners(item, itemDOM, project);
+
+}
+
 //function 
 
-export {addToDo, newToDo};
+export {addToDo, newToDo, editItem};

@@ -11,9 +11,9 @@
         <div id="header">To-Do</div>
         <div id="content">
             <div class="sidenav">
-                <a href="#home">Home</a>
-                <a href="#today">Today</a>
-                <a href="#week">Week</a>
+                <a href="#home" id="home">Home</a>
+                <a href="#today" id="today">Today</a>
+                <a href="#week" id="week">Week</a>
                 <button class="dropdown-btn" id="dropdown-btn">Projects  --></button>
                 <div class="dropdown-container" id="dropdown-container">
                   <a class="open-button" id="new-project">+ New Project</a>
@@ -50,6 +50,27 @@
 
                       <button type="button" class="btn" id="add-to-do">Add To-Do</button>
                       <button type="button" class="btn cancel" id="cancel-to-do">Cancel</button>
+                    </div>
+                  </div>
+                  <div class="form-popup" id="edit">
+                    <div class="form-container">
+                      <h1>Edit To-Do</h1>
+                  
+                      <label for="name"><b>To-Do Name</b></label>
+                      <input type="text" placeholder="Enter Name" class="input" id="edit-name">
+
+                      <label for="name"><b>Description</b></label>
+                      <input type="text" placeholder="Enter Description" class="input" id="edit-description">
+
+                      <label for="name"><b>Due Date</b></label>
+                      <input type="date" placeholder="Enter Date" class="input" id="edit-date">
+
+                      <label for="name"><b>Priority</b></label>
+                      <input type="text" placeholder="Priority Level" class="input" id="edit-priority">
+
+                      <button type="button" class="btn" id="edit-to-do">Add To-Do</button>
+                      <button type="button" class="btn cancel" id="cancel-edit">Cancel</button>
+                      <button type="button" class="btn cancel" id="delete-to-do">Delete Task</button>
                     </div>
                   </div>
             </div>

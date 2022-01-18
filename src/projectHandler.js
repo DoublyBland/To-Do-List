@@ -1,10 +1,12 @@
-import {addToDo} from './toDoHandler';
+import {addToDo, editItem} from './toDoHandler';
 
 function newProject(name) {
     let project = {
         name: name,
         todos: [],
     }
+    // let copy = projects
+    // window.localStorage.setItem("Projects", JSON.stringify(copy));
     projects.push(project);
     _addProjectToPage(project);
     return project;
@@ -48,12 +50,12 @@ function displayToDo(project){
     addNewTaskBtn.addEventListener('click', function(){
         addToDo(project)//toDoHandler.js
     });
-    _appendToDoNodes(project, container);
+    appendToDoNodes(project, container);
     container.appendChild(addNewTaskBtn);
 }
 
 
-function _appendToDoNodes(project, container){
+function appendToDoNodes(project, container){
     for(let i = 0; i<project.todos.length;i++){
         let todo = project.todos[i];
         if(todo.title !== null && todo.dueDate !== null){
@@ -72,43 +74,54 @@ function _appendToDoNodes(project, container){
 }
 
 function findItem(){
-        let id =this.id;
-        let id_strings = id.split('-');
+       let id =this.id;
+       let id_strings = id.split('-');
        let project =  _projectFinder(id_strings[0]);
        let index = id_strings[1] - 1;
-       //console.log(index);
-       let toDoItem = project.todos[index];
-       console.log(toDoItem);
-       //editItem(toDoItem);
+       let itemIndex = findItemIndex(id_strings[1], project.todos);
+       //console.log(itemIndex);
+       //let toDoItem = project.todos[index];
+       editItem(itemIndex, this, project);
+}
+
+function findItemIndex(indexValue, itemArray){
+    //console.log(indexValue);
+    //console.log(itemArray);
+    let item = itemArray.find(x => {
+        return x.index == indexValue;
+      })
+      return item;
 }
 
 function _projectFinder(title){
-    //console.log(projects);
     let foundProject = projects.find(( {name }) => name === title);
     return foundProject;
 }
 
 function _removeAllChildNodes(parent) {
-    //console.log(parent.firstChild);
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
-
 let projects = [];
+// if(!localStorage.getItem('Projects')){
+//      projects = [];
+// } else {
+//      let stringy = localStorage.getItem('Projects');
+//      projects = JSON.parse(stringy);
+// }
+
 
 (function testingValues(){
-    let gamingToDo = newToDo("Play", "gotta game", "tomorrow", 5, 1);
-let gamingToDo2 = newToDo("Play", "gotta game", "tomorrow", 5, 2);
-let gamingToDo3 = newToDo("Play", "gotta game", "tomorrow", 5, 3);
-let gamingToDo4 = newToDo("Play", "gotta game", "tomorrow", 5, 4);
-let gaming = newProject("Gaming");
-let chores = newProject("Chores");
-gaming.todos.push(gamingToDo);
-gaming.todos.push(gamingToDo2);
-gaming.todos.push(gamingToDo3);
-gaming.todos.push(gamingToDo4);
+    let gamingToDo = newToDo("Zelda", "Play", "2022-01-18", 5, 1);
+    let gamingToDo2 = newToDo("Mario", "Watch", "2022-01-22", 5, 2);
+    let choresToDo = newToDo("Clean Dishes", "Scrub with soap", "2022-01-18", 5, 1);
+    let gaming = newProject("Gaming");
+    let chores = newProject("Chores");
+    gaming.todos.push(gamingToDo);
+    gaming.todos.push(gamingToDo2);
+    chores.todos.push(choresToDo);
 })();
 
 
-export{newProject, displayToDo};
+export{newProject, displayToDo, projects, appendToDoNodes, findItem};
