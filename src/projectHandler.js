@@ -8,6 +8,7 @@ function newProject(name) {
     // let copy = projects
     // window.localStorage.setItem("Projects", JSON.stringify(copy));
     projects.push(project);
+    localStorage.setItem("projects", JSON.stringify(projects));
     _addProjectToPage(project);
     return project;
 }
@@ -103,7 +104,8 @@ function _removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-let projects = [];
+let projects = JSON.parse(localStorage.getItem("projects") || "[]");
+console.log("Projects looks like: " + projects);
 // if(!localStorage.getItem('Projects')){
 //      projects = [];
 // } else {
@@ -114,13 +116,15 @@ let projects = [];
 
 (function testingValues(){
     let gamingToDo = newToDo("Zelda", "Play", "2022-01-18", 5, 1);
-    let gamingToDo2 = newToDo("Mario", "Watch", "2022-01-22", 5, 2);
+    let gamingToDo2 = newToDo("Mario", "Watchn", "2022-01-22", 5, 2);
     let choresToDo = newToDo("Clean Dishes", "Scrub with soap", "2022-01-18", 5, 1);
     let gaming = newProject("Gaming");
     let chores = newProject("Chores");
+    if(gaming.length == 0 && chores.length == 0){
     gaming.todos.push(gamingToDo);
     gaming.todos.push(gamingToDo2);
     chores.todos.push(choresToDo);
+    }
 })();
 
 

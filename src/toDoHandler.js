@@ -21,6 +21,7 @@ function newToDo(project){
     // let copy = projects;
     // window.localStorage.setItem("Projects", JSON.stringify(copy));
     project.todos.push(toDo);
+    localStorage.setItem("projects", JSON.stringify(projects));
     displayToDo(project);
     //addNode(toDo);
 }
